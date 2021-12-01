@@ -1,6 +1,8 @@
 # Procedural-Generation
 This program produces 3-dimensional vertices for shape/sphere generation. 
 
+Must have the Parallel Computing Toolbox installed
+
 All terrain texture image files from: https://www.solarsystemscope.com/textures/
 
 ## Known Issues
