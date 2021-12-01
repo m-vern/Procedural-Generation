@@ -15,7 +15,7 @@ Generations using the CPU seem to be much quicker than using the GPU, this shoul
 
 This program is supposed to have an export option to save a generation, this function still needs added.
 
-In its current state,a lot of the code needs to be revised and cleaned up.
+In its current state,a lot of the code needs to be revised and cleaned up. Remove global variables.
 
 ## Future
 
