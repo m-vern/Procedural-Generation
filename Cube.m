@@ -1,12 +1,18 @@
-function [x,y,z,c] = Cube(r,s)
+function [x,y,z,c] = Cube(r,s,g)
     %% This function generates an (r by r by 6) matrix, or 6 square face grids, of vertices resembling a cube.
     % Where r = resolution and s = length, width, and height of cube
     
     % Create a square grid in 3D-space for given r value 
     % Where x,y,z are coordinates representing vertices on a square grid
-    x = gpuArray(linspace(-r,r,r+1)); x = repmat(x,r+1,1); x = (x/r)*s;
-    y = gpuArray(rot90(linspace(-r,r,r+1))); y = repmat(y,1,r+1); y = (y/r)*s;
-    z = gpuArray(-ones(r+1)*r); z = (z/r)*s;
+    if (g)
+        x = gpuArray(linspace(-r,r,r+1)); x = repmat(x,r+1,1); x = (x/r)*s;
+        y = gpuArray(rot90(linspace(-r,r,r+1))); y = repmat(y,1,r+1); y = (y/r)*s;
+        z = gpuArray(-ones(r+1)*r); z = (z/r)*s;
+    else
+        x = linspace(-r,r,r+1); x = repmat(x,r+1,1); x = (x/r)*s;
+        y = rot90(linspace(-r,r,r+1)); y = repmat(y,1,r+1); y = (y/r)*s;
+        z = -ones(r+1)*r; z = (z/r)*s;
+    end
     
     % Repeat and offset the square grid to create the six sides of the cube
     x(:,:,2) = x(:,:,1); x(:,:,3) = z(:,:,1); x(:,:,4:6) = -x(:,:,1:3);

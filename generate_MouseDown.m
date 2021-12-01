@@ -1,4 +1,4 @@
-function generate_MouseDown(generate, resolution, shape_size, amplitude_1, amplitude_2, flatten_height)
+function generate_MouseDown(generate, resolution, shape_size, amplitude_1, amplitude_2, flatten_height, GPU)
     %% Generate Button On_MouseDown
     % Send GUI inputs/settings to procedural generation
     global res;
@@ -13,4 +13,6 @@ function generate_MouseDown(generate, resolution, shape_size, amplitude_1, ampli
     flatten = flatten_height.Value;
     global generated;
     generated = true;
+    global use_GPU;
+    use_GPU = GPU.Value;
 end

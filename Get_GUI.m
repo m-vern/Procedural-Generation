@@ -32,26 +32,26 @@ function Get_GUI()
     end
 
     slider_1_lbl = uilabel(control_panel, 'Text', "Resolution");
-    shape_resolution = uislider(control_panel, 'Limits', [1 200]);
+    shape_resolution = uislider(control_panel, 'Limits', [1 200], "Value", 37);
 
     slider_2_lbl = uilabel(control_panel, 'Text', "Size");
-    shape_size = uislider(control_panel);
+    shape_size = uislider(control_panel, "Limits", [1 100]);
     
     slider_3_lbl = uilabel(control_panel, 'Text', "Noise Amp 1");
-    amplitude_1 = uislider(control_panel);
+    amplitude_1 = uislider(control_panel, "Value", 12);
 
     slider_4_lbl = uilabel(control_panel, 'Text', "Noise Amp 2");
-    amplitude_2 = uislider(control_panel);
+    amplitude_2 = uislider(control_panel, "Value", 5);
 
     slider_5_lbl = uilabel(control_panel, 'Text', "Flatten Height");
-    flatten_height = uislider(control_panel, 'Limits', [0.1 1.1]);
+    flatten_height = uislider(control_panel, 'Limits', [0.1 1.1], "Value", 0.76);
     
     texture_dropdown_lbl = uilabel(control_panel, 'Text',"Surface Texture");
     global texture_dropdown
     texture_dropdown = uidropdown(control_panel, 'Items', {'Height Map', 'Moon', 'Mars', 'Ice', 'Rocky', 'Stars'});
     
     global generate
-    generate = uibutton(control_panel, 'Text', "Generate", 'FontWeight', 'bold', 'FontSize', 13,'ButtonPushedFcn', @(generate,event) generate_MouseDown(generate, shape_resolution, shape_size, amplitude_1, amplitude_2, flatten_height));
+    generate = uibutton(control_panel, 'Text', "Generate", 'FontWeight', 'bold', 'FontSize', 13,'ButtonPushedFcn', @(generate,event) generate_MouseDown(generate, shape_resolution, shape_size, amplitude_1, amplitude_2, flatten_height, GPU));
     
     global ax;
     ax = axes('parent', GUI_grid, "Color",'none');
