@@ -5,6 +5,8 @@ Must have the Parallel Computing Toolbox installed
 
 All terrain texture image files from: https://www.solarsystemscope.com/textures/
 
+Perlin noise function modified from: https://gist.github.com/OrganicIrradiation/2a927ab7f9cfeb1bff78
+
 ## Known Issues
 
 Texture image mapping is not finished.
@@ -22,3 +24,5 @@ In its current state,a lot of the code needs to be revised and cleaned up. Remov
 Implement a higher level of control of the noise
 
 Add different kinds of noise: ridges, craters, valleys, etc.
+
+Create a more efficient function for creating Perlin noise, as this one is very slow.
